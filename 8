@@ -1,0 +1,20 @@
+  file_path <- "C:/Users/deepa/Desktop/Clt-data.csv"
+  #1
+  data <- read.csv(file_path)
+  nrow(data)
+  head(data,10)
+  population_mean <- mean(data$Wall.Thickness)
+  population_mean
+  hist(data$Wall.Thickness, main = "Histogram of Wall Thickness", xlab = "Wall Thickness", ylab = "Frequency", col = "lightblue")
+  
+  abline(v = population_mean, col = "red", lwd = 2)
+  
+  
+  #2
+  s10<-c()
+  for (i in 1:nrow(data))
+  {
+    s10[i]=mean(sample(data$Wall.Thickness,10,replace = TRUE))
+  }
+  hist(s10,col="red")
+  abline(v=mean(s10),col="white",lwd="3")
